@@ -1,6 +1,6 @@
 const gameArea = document.getElementById("gameArea");
 const context = gameArea.getContext("2d");
-const size = 20; // Tamaño de cada segmento de la serpiente
+const size = 20;
 const gameAreaSize = gameArea.width;
 let snake = [
   { x: 160, y: 160 },
@@ -67,12 +67,11 @@ function moveSnake() {
   snake.unshift(head);
 
   if (head.x === food.x && head.y === food.y) {
-    generateFood(); // Genera nueva comida si la serpiente come la actual
+    generateFood();
   } else {
-    snake.pop(); // Remueve el último segmento si no come
+    snake.pop();
   }
 
-  // Check collision with walls
   if (
     head.x < 0 ||
     head.y < 0 ||
